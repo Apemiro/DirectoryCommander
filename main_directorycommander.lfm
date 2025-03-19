@@ -8,7 +8,6 @@ object Form_DirectoryCommander: TForm_DirectoryCommander
   ClientWidth = 1162
   Constraints.MinHeight = 440
   Constraints.MinWidth = 640
-  DesignTimePPI = 144
   OnClose = FormClose
   OnCreate = FormCreate
   Position = poScreenCenter
@@ -29,55 +28,25 @@ object Form_DirectoryCommander: TForm_DirectoryCommander
       AnchorSideLeft.Control = Frame_AufScript1
       AnchorSideRight.Control = Frame_AufScript1
       AnchorSideBottom.Control = Frame_AufScript1
-      Height = 12
-      Top = 359
-      Width = 946
+      Left = 968
+      Height = 24
+      Top = 344
+      Width = 0
     end
     inherited Memo_out: TMemo
+      AnchorSideTop.Control = Frame_AufScript1
       AnchorSideRight.Control = Frame_AufScript1
-      Left = 721
-      Height = 279
-      Top = 30
-      Width = 230
-    end
-    inherited Button_run: TButton
-      Left = 721
-      Height = 40
-      Top = 314
-      Width = 85
-    end
-    inherited Button_pause: TButton
-      Left = 794
-      Height = 40
-      Top = 314
-      Width = 85
-    end
-    inherited Button_stop: TButton
-      Left = 866
-      Height = 40
-      Top = 314
-      Width = 85
-    end
-    inherited Button_ScriptLoad: TButton
-      Height = 40
-      Top = 314
-      Width = 85
-    end
-    inherited Button_ScriptSave: TButton
-      Left = 150
-      Height = 40
-      Top = 314
-      Width = 85
+      Height = 336
+      Width = 792
     end
     inherited Memo_cmd: TSynEdit
       AnchorSideLeft.Control = Frame_AufScript1
-      Height = 279
-      Top = 30
-      Width = 230
-      Gutter.Width = 61
+      AnchorSideTop.Control = Frame_AufScript1
+      Height = 336
+      Gutter.Width = 59
       inherited SynLeftGutterPartList1: TSynGutterPartList
         inherited SynGutterLineNumber1: TSynGutterLineNumber
-          Width = 19
+          Width = 17
         end
         inherited SynGutterCodeFolding1: TSynGutterCodeFolding
           AutoSize = False
@@ -85,13 +54,48 @@ object Form_DirectoryCommander: TForm_DirectoryCommander
         end
       end
     end
-    inherited TrackBar: TTrackBar
-      AnchorSideLeft.Control = Frame_AufScript1
+    inherited Splitter_Vert: TSplitter
       AnchorSideTop.Control = Frame_AufScript1
+      Height = 336
+    end
+    inherited Splitter_Horiz: TSplitter
+      AnchorSideLeft.Control = Frame_AufScript1
       AnchorSideRight.Control = Frame_AufScript1
-      Height = 20
-      Width = 946
-      ShowHint = True
+      Width = 956
+    end
+    inherited Button_ScriptLoad: TBitBtn
+      AnchorSideBottom.Control = Frame_AufScript1
+      Height = 40
+      Top = 336
+      Width = 85
+    end
+    inherited Button_ScriptSave: TBitBtn
+      AnchorSideBottom.Control = Frame_AufScript1
+      Left = 85
+      Height = 40
+      Top = 336
+      Width = 85
+    end
+    inherited Button_run: TBitBtn
+      AnchorSideBottom.Control = Frame_AufScript1
+      Left = 174
+      Height = 40
+      Top = 336
+      Width = 85
+    end
+    inherited Button_pause: TBitBtn
+      AnchorSideBottom.Control = Frame_AufScript1
+      Left = 259
+      Height = 40
+      Top = 336
+      Width = 85
+    end
+    inherited Button_stop: TBitBtn
+      AnchorSideBottom.Control = Frame_AufScript1
+      Left = 344
+      Height = 40
+      Top = 336
+      Width = 85
     end
     inherited OpenDialog: TOpenDialog
       left = 352
@@ -123,7 +127,7 @@ object Form_DirectoryCommander: TForm_DirectoryCommander
     Cursor = crVSplit
     Left = 960
     Height = 4
-    Top = 578
+    Top = 590
     Width = 202
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
@@ -137,12 +141,12 @@ object Form_DirectoryCommander: TForm_DirectoryCommander
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Splitter_FileTree_H
     Left = 960
-    Height = 578
+    Height = 590
     Top = 0
     Width = 202
     Anchors = [akTop, akLeft, akRight, akBottom]
     BevelOuter = bvNone
-    ClientHeight = 578
+    ClientHeight = 590
     ClientWidth = 202
     Constraints.MinHeight = 160
     TabOrder = 4
@@ -154,7 +158,7 @@ object Form_DirectoryCommander: TForm_DirectoryCommander
       AnchorSideBottom.Control = Panel_TreeView
       AnchorSideBottom.Side = asrBottom
       Left = 5
-      Height = 536
+      Height = 548
       Top = 37
       Width = 192
       Anchors = [akTop, akLeft, akRight, akBottom]
@@ -198,7 +202,7 @@ object Form_DirectoryCommander: TForm_DirectoryCommander
       ChildSizing.ShrinkVertical = crsScaleChilds
       ChildSizing.Layout = cclLeftToRightThenTopToBottom
       ChildSizing.ControlsPerLine = 3
-      ClientHeight = 6
+      ClientHeight = 13
       ClientWidth = 188
       Columns = 3
       Items.Strings = (
@@ -231,11 +235,11 @@ object Form_DirectoryCommander: TForm_DirectoryCommander
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Splitter_Vert
     AnchorSideBottom.Control = StatusBar
-    Height = 202
+    Height = 214
     Top = 380
     Width = 956
     Anchors = [akTop, akLeft, akRight, akBottom]
-    ClientHeight = 202
+    ClientHeight = 214
     ClientWidth = 956
     TabOrder = 6
     DesignLeft = 695
@@ -246,7 +250,7 @@ object Form_DirectoryCommander: TForm_DirectoryCommander
       AnchorSideRight.Control = FileSelectionFrame1
       AnchorSideBottom.Control = FileSelectionFrame1
       Left = 6
-      Height = 190
+      Height = 202
       Top = 6
       Width = 944
       BorderSpacing.Left = 6
@@ -255,13 +259,20 @@ object Form_DirectoryCommander: TForm_DirectoryCommander
       BorderSpacing.Bottom = 6
       OnEnter = nil
       OnMouseEnter = ListBoxMouseEnter
+      OnMouseUp = ListBoxMouseUp
+      PopupMenu = FileSelectionFrame.PopupMenu_SelWin
       Sorted = False
+    end
+    inherited PopupMenu_SelWin: TPopupMenu
+      inherited MenuItem_SelWin_Open: TMenuItem
+        OnClick = MenuItem_SelWin_OpenClick
+      end
     end
   end
   object StatusBar: TStatusBar
     Left = 0
-    Height = 34
-    Top = 582
+    Height = 22
+    Top = 594
     Width = 1162
     Panels = <    
       item
@@ -296,6 +307,7 @@ object Form_DirectoryCommander: TForm_DirectoryCommander
     end
     object MenuItem_Numberization: TMenuItem
       Caption = '序列工具'
+      Enabled = False
       object MenuItem_DecRank: TMenuItem
         Caption = '十进制'
       end
@@ -305,6 +317,7 @@ object Form_DirectoryCommander: TForm_DirectoryCommander
     end
     object MenuItem_rename: TMenuItem
       Caption = '重命名工具'
+      Enabled = False
       object MenuItem_SimpleRen: TMenuItem
         Caption = '简单重命名'
       end
@@ -317,6 +330,7 @@ object Form_DirectoryCommander: TForm_DirectoryCommander
     end
     object MenuItem_refresh: TMenuItem
       Caption = '刷新目录'
+      Enabled = False
     end
     object MenuItem_openDir: TMenuItem
       Caption = '在文件夹中打开'
